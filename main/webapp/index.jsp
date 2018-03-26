@@ -11,7 +11,7 @@
 <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id" content="116725367766-hf13gjp82j1a0c8mb0lm00doofaq18h1.apps.googleusercontent.com">
 
-<title>Servlet OAuth example</title>
+<title>EveryDayWords</title>
 </head>
 <body>
 	<h2>EveryDayWords</h2>
@@ -31,16 +31,23 @@
          //do not post all above info to the server because that is not secure.
          //just send the id_token
 
-         var redirectUrl = 'login';
-
+        var redirectUrl = 'login';
+         /*var http=new XmlHttpRequest();
+         http.oreadyStateChange = function(){
+         	if(http.readyState==4 && http.status==200)
+         		<input type="text" name="id_token" value="' + googleUser.getAuthResponse().id_token + '" />
+         	
+http.open("Post","redirectUrl",true);
+         http.send();*/
          //using jquery to post data dynamically
-         var form = $('<form action="' + redirectUrl + '" method="post">' +
+        var form = $('<form action="' + redirectUrl + '" method="post">' +
                           '<input type="text" name="id_token" value="' +
-                           googleUser.getAuthResponse().id_token + '" />' +
-                                                                '</form>');
+                          googleUser.getAuthResponse().id_token + '" />' +
+                                                                '</form>')
          $('body').append(form);
          form.submit();
-      }
+       
+     }
 
    </script>
   
