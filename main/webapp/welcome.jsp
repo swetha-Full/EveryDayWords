@@ -11,15 +11,37 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <title>Welcome</title>
+<!--  
+<script>
+function postToSheet(){
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange=function(){
+		if(this.readyState==4 && this.status== 200){
+			document.getElementById("demo").innerHTML=this.responseText(),
+		$.ajax({
+				  "range": "Sheet1!A6",
+				  "majorDimension": "ROWS",
+				  "values": [
+				    ["word", "meaning", "source"]
+				    
+				  ]
+		});
+  }
+	xhttp.open("Post","https://sheets.googleapis.com/v4/spreadsheets/1CnICvq_wLLxya8z72TmMKw89yhPLlSHUawjJ9xuT4I8/values/Sheet1!A1:D5?valueInputOption=USER_ENTERED",true);
+	//xhttp.send();
+ }
+</script>-->
+<!--  
 <script>
 		function postContactToGoogle() {
+			
+		    console.log("Hello james");
 			var word = $('#word').val();
 			var meaning = $('#meaning').val();
 			var source = $('#source').val();
-
 			
-					$.ajax({
-						url : "https://docs.google.com/forms/d/e/1FAIpQLSfo-uopHchgKKggmVDyCz2I7KumVd4KXmadaD61WHJhiwL--Q/formResponse?",
+            $.ajax({
+						url : "https://crossorigin.me/https://docs.google.com/forms/d/e/1FAIpQLSfo-uopHchgKKggmVDyCz2I7KumVd4KXmadaD61WHJhiwL--Q/formResponse?",
 						data : {
 							"entry.1432248718" : word,
 							"entry.655136650" : meaning,
@@ -27,10 +49,17 @@
 						},
 						type : "POST",
 						dataType : "xml",
-						statusCode : {0 : function() {window.location.replace("ThankYou.html");},200 : function() {window.location.replace("ThankYou.html");}}
-});
+						statusCode : {
+							0 : function() {
+							     // window.location.replace("ThankYou.html");
+							},
+							200 : function() {
+						          //window.location.replace("ThankYou.html");
+						    }
+						}
+           });
 		}
-	</script>
+	</script>-->
 </head>
 <body>
 	<%
@@ -40,22 +69,26 @@
 	<%
 		}
 	%>
+<script>
+session.getAttribute("image");
+</script>
+	<h1>Welcome ${userName}</h1>
+	<h2>Image: ${image}</h2>
+	<p id="demo"><h2>Add A Word</h2></p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo-uopHchgKKggmVDyCz2I7KumVd4KXmadaD61WHJhiwL--Q/formResponse?">Click here to add words into the form</a><br/>
 
-	<h3>Welcome ${userName}</h3>
-
-	
-	<form id="myForm" action="" method="Post" target="no-target">
+ 	<!--  <form id="myForm" onclick="postToSheet()"method="Post" target="no-target">
 		Word:<input id="word" type="text" name="word"
 			placeholder="Type in a word"><br /> Meaning:<input
 			id="meaning" type="text" name="meaning"
 			placeholder="meaning of the word"><br /> source:<input
 			id="source" type="text" name="source"
-			placeholder="source of the word"><br />
-		<button id="formSubmit" type="button" onclick="postContactToGoogle()">Submit
-		</button>
+			placeholder="source of the word"><br /> <input type="submit"
+			value="submit" onclick="postToSheet()">
+
 	</form>
 
-
+-->
 
 
 	<a href="index.jsp" onclick="signOut();">SignOut</a>

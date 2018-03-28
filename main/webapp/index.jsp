@@ -27,6 +27,7 @@
          console.log('Image URL: ' + profile.getImageUrl());
          console.log('Email: ' + profile.getEmail());
          console.log('id_token: ' + googleUser.getAuthResponse().id_token);
+         Image_URL:profile.getImageUrl();
 
          //do not post all above info to the server because that is not secure.
          //just send the id_token

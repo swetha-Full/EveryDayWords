@@ -20,15 +20,16 @@ public class Login extends HttpServlet {
 
         try {
             String idToken = req.getParameter("id_token");
+            String ImageURL=req.getParameter("Image_URL");
             GoogleIdToken.Payload payLoad = IdTokenVerifierAndParser.getPayload(idToken);
             String name = (String) payLoad.get("name");
             String email = payLoad.getEmail();
-            
             System.out.println("User name: " + name);
             System.out.println("User email: " + email);
 
             HttpSession session = req.getSession(true);
             session.setAttribute("userName", name);
+            session.setAttribute("image",ImageURL);
             resp.sendRedirect("/welcome.jsp");
           
 
