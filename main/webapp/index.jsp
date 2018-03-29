@@ -9,7 +9,8 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id" content="116725367766-hf13gjp82j1a0c8mb0lm00doofaq18h1.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="
+665127871186-rts59tahaio5d9qhttqranq3gg2kat8i.apps.googleusercontent.com">
 
 <title>EveryDayWords</title>
 </head>
@@ -27,19 +28,15 @@
          console.log('Image URL: ' + profile.getImageUrl());
          console.log('Email: ' + profile.getEmail());
          console.log('id_token: ' + googleUser.getAuthResponse().id_token);
-         Image_URL:profile.getImageUrl();
-
+      
+   
+         
+         
          //do not post all above info to the server because that is not secure.
          //just send the id_token
 
         var redirectUrl = 'login';
-         /*var http=new XmlHttpRequest();
-         http.oreadyStateChange = function(){
-         	if(http.readyState==4 && http.status==200)
-         		<input type="text" name="id_token" value="' + googleUser.getAuthResponse().id_token + '" />
-         	
-http.open("Post","redirectUrl",true);
-         http.send();*/
+        
          //using jquery to post data dynamically
         var form = $('<form action="' + redirectUrl + '" method="post">' +
                           '<input type="text" name="id_token" value="' +
@@ -51,6 +48,14 @@ http.open("Post","redirectUrl",true);
      }
 
    </script>
-  
+  <a href="index.jsp" onclick="signOut();">SignOut</a>
+<script>
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function() {
+				console.log('User signed out.');
+			});
+		};
+	</script>
 </body>
 </html>

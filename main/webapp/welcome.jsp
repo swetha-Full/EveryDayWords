@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id"
-	content="116725367766-hf13gjp82j1a0c8mb0lm00doofaq18h1.apps.googleusercontent.com">
+	content="
+665127871186-rts59tahaio5d9qhttqranq3gg2kat8i.apps.googleusercontent.com">
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -62,38 +63,13 @@ function postToSheet(){
 	</script>-->
 </head>
 <body>
-	<%
-		if (session.getAttribute("userName") == null) {
-	%>
-	<jsp:forward page="/index.jsp" />
-	<%
-		}
-	%>
-<script>
-session.getAttribute("image");
-</script>
+	<% if (session.getAttribute("userName") == null) {%>
+<jsp:forward page="/index.jsp"/>
+<% } %>
 	<h1>Welcome ${userName}</h1>
-	<h2>Image: ${image}</h2>
-	<p id="demo"><h2>Add A Word</h2></p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo-uopHchgKKggmVDyCz2I7KumVd4KXmadaD61WHJhiwL--Q/formResponse?">Click here to add words into the form</a><br/>
-
- 	<!--  <form id="myForm" onclick="postToSheet()"method="Post" target="no-target">
-		Word:<input id="word" type="text" name="word"
-			placeholder="Type in a word"><br /> Meaning:<input
-			id="meaning" type="text" name="meaning"
-			placeholder="meaning of the word"><br /> source:<input
-			id="source" type="text" name="source"
-			placeholder="source of the word"><br /> <input type="submit"
-			value="submit" onclick="postToSheet()">
-
-	</form>
-
--->
-
-
-	<a href="index.jsp" onclick="signOut();">SignOut</a>
-
-	<script>
+  <button type="button" onclick="signOut()">SignOut</button>
+<script>
 		function signOut() {
 			var auth2 = gapi.auth2.getAuthInstance();
 			auth2.signOut().then(function() {
@@ -101,5 +77,17 @@ session.getAttribute("image");
 			});
 		};
 	</script>
+</script>
+ 	  <form id="myForm" >
+		Word:<input id="word" type="text" name="Word"placeholder="Type in a word"><br /> 
+		Meaning:<input id="meaning" type="text" name="Meaning" placeholder="meaning of the word"><br />
+		 source:<input	id="source" type="text" name="Source"placeholder="source of the word"><br /> 
+		 <input type="submit"value="submit" id="submit-form">
+
+	</form> 
+
+
+	<script type="text/javascript" src="Submit.js"></script>
+	
 </body>
 </html>
