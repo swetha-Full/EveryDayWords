@@ -9,8 +9,7 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id" content="
-665127871186-rts59tahaio5d9qhttqranq3gg2kat8i.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="116725367766-hf13gjp82j1a0c8mb0lm00doofaq18h1.apps.googleusercontent.com">
 
 <title>EveryDayWords</title>
 </head>

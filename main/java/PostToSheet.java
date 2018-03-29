@@ -30,7 +30,7 @@ public class PostToSheet extends HttpServlet {
 
 		);
 		ValueRange body = new ValueRange().setValues(values);
-		UpdateValuesResponse result = Service.spreadsheets().values()
+		UpdateValuesResponse result = service.spreadsheets().values()
 				.update("1K3quW46lnYMNOnY6hk6rgbGauycYkq8vajUC-b2ovpk", "Sheet1!B1", body)
 				.setValueInputOption("USER_ENTERED").execute();
 		System.out.printf("%d cells updated.", result.getUpdatedCells());
